@@ -42,7 +42,7 @@ jobs:
           run: |
             echo $DOCKER_TAG
     
-            docker build -t dapper01/simple_flow_app:$DOCKER_TAG .
+            docker build -t dapper01/simple_flow_project:$DOCKER_TAG .
            
         - name: login to dockerhub
           run: |
