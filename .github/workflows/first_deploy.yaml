@@ -40,7 +40,14 @@ jobs:
           
         - name: "Use variable"       
           run: |
+            echo $DOCKER_TAG
+    
             docker build -t theoafactor/simple_flow_app:$DOCKER_TAG .
+           
+        - name: login to dockerhub
+          run: |
+             docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}    
 
-
-  
+        - name: "push to Docker Hub"
+          run: |
+             docker push dapper01/simple_flow_project:$DOCKER_TAG 
